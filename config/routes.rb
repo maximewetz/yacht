@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
 
   resources :boats do
-    resources :reservations
     resources :reviews
-    resources :availibilities
+    resources :availibilities do
+      resources :reservations
+      end
+    end
   end
  end
