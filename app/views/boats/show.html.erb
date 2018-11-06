@@ -1,2 +1,15 @@
-<h1>Boats#show</h1>
-<p>Find me in app/views/boats/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p><strong>About this boat</strong></p>
+  <ul>
+  <strong><%= @boat.name %></strong>
+  <li><%= @boat.boat_type %></li>
+  <li><%= @boat.city %></li>
+  <li><%= @boat.price %></li>
+  <li><%= @boat.size %></li>
+  </ul>
+
+<%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Destroy', @boat, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+|<%= link_to 'Back', boat_path %>
