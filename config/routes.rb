@@ -5,15 +5,16 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :profile
+    resources :boats
   end
 
-  resources :boats do
+  resources :boats, only: [:index, :show] do
     resources :reservations, only: [:new, :create]
     resources :reviews
     resources :availibilities
   end
 
-  resources :profile do
+  resources :profile, only: [:index] do
     resources :reservations, only: [:index, :edit, :update, :show, :destroy]
   end
  end
