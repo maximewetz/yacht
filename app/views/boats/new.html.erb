@@ -1,5 +1,7 @@
 <h1>Add your boat for rend</h1>
 
+<%= current_user.inspect %>
+
 <%= simple_form_for @boat  do |f| %>
   <%= f.input :name %>
   <%= f.input :boat_type, collection: ["sailboat", "motorboat", "catamaran", "RIB", "jet ski", "house boat"] %>
