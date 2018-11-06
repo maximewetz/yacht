@@ -1,7 +1,8 @@
 <h1>Reservations/index</h1>
 
-   <%= simple_form_for @reservation do |f| %>
-        <%= f.input :booked_from %>
-        <%= f.input :booked_to %>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+<ul>
+  <% @reservations.each do |r| %>
+<li> <%= r.booked_from %></li>
+<li> <%= r.booked_to %></li>
+<% end %>
+</ul>

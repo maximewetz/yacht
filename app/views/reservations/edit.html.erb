@@ -1,1 +1,7 @@
 <h1>Reservations/edit</h1>
+
+ <%= simple_form_for @reservation do |f| %>
+        <%= f.input :booked_from %>
+        <%= f.input :booked_to %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
