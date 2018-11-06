@@ -1,2 +1,8 @@
-<h1>Availibilities#index</h1>
-<p>Find me in app/views/availibilities/index.html.erb</p>
+
+<p>You are on the availibilities/index</p>
+
+<h1>availibilities</h1>
+  <% @availibilities.each do |availibility| %>
+     <p><%= availibility.boat_id %></p>
+  <% end %>
+

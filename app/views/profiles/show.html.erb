@@ -1,1 +1,8 @@
-<h1>Profiles/new</h1>
+<h1>Profiles/show</h1>
+
+<h2><% @profiles.each do |profile| %></h2>
+  <h3><%= profile.first_name %></h3>
+  <h3><%= profile.last_name %></h3>
+  <h3><%= profile.phone_number %></h3>
+
+<% end %>

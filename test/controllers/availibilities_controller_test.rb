@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class AvailibilitiesControllerTest < ActionDispatch::IntegrationTest
+
   test "should get index" do
     get availibilities_index_url
     assert_response :success
