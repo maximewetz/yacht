@@ -1,2 +1,11 @@
-<h1>Boats#edit</h1>
-<p>Find me in app/views/boats/edit.html.erb</p>
+<h1>Modify your boat</h1>
+
+<%= simple_form_for @boat  do |f| %>
+  <%= f.input :name %>
+  <%= f.input :boat_type, collection: ["sailboat", "motorboat", "catamaran", "RIB", "jet ski", "house boat"] %>
+  <%= f.input :city %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :size %>
+  <%= f.submit "Give the availibilities" %>
+<% end %>

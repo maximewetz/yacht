@@ -9,11 +9,11 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.new(boat_params)
-    # if @boat.save
-    #   redirect_to boat_path(@boat)
-    # else
-    #   render :show
-    # end
+    if @boat.save
+      redirect_to new_boat_availibility(@boat)
+    else
+      render :show
+    end
   end
 
   def show
