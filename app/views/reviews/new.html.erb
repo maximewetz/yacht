@@ -1,1 +1,7 @@
-<p>You are on the reviews/new</p>
+<h1>Add a review</h1>
+<%= simple_form_for [@boat, @review] do |f|  %>
+<%= f.error_notification %>
+<%= f.input :rating %>
+<%= f.input :comment %>
+<%= f.submit %>
+<% end %>
