@@ -5,13 +5,14 @@ class BoatsController < ApplicationController
 
   def new
     @boat = Boat.new
+    @boat.user = current_user
   end
 
   def create
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     if @boat.save
-      redirect_to new_boat_path(@boat)
+      redirect_to root_path
     else
       render :show
     end
@@ -33,7 +34,8 @@ class BoatsController < ApplicationController
 
   def destroy
     @boat = Boat.find(params[:id])
-    @boat.destroy redirect_to user_boats_path
+    @boat.destroy
+    redirect_to root_path
   end
 
   private
