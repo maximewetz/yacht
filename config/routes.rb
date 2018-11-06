@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
   end
 
-  resources :boats, only: [:show] do
+    resources :boats, only: [:index, :show] do
     resources :reservations, only: [:new, :create]
     resources :reviews
     resources :availibilities
   end
+
+
 
   resources :profiles, only: [:show] do
     resources :reservations, only: [:index, :edit, :update, :show, :destroy]

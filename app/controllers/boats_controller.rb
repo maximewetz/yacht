@@ -9,6 +9,7 @@ class BoatsController < ApplicationController
 
   def create
     @boat = Boat.new(boat_params)
+    @boat.user = current_user
     if @boat.save
       redirect_to new_boat_availibility(@boat)
     else
@@ -32,11 +33,11 @@ class BoatsController < ApplicationController
 
   def destroy
     @boat = Boat.find(params[:id])
-    @boat.destroy redirect_to boats_path
+    @boat.destroy redirect_to user_boats_path
   end
 
   private
   def boat_params
-    params.require(:boat).permit(:user_id, :name, :type, :city, :price, :size)
+    params.require(:boat).permit(:user_id, :name, :boat_type, :city, :price, :size)
   end
 end
