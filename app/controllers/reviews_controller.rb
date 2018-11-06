@@ -26,7 +26,7 @@ end
 
 private
 
-  def cocktail_params
+  def reviews_params
     params.require(:review).permit(:rating, :comment)
   end
 
