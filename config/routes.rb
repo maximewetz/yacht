@@ -4,16 +4,18 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: [:show] do
-    resources :profiles
+    resources :profile
+    resources :boats
+
   end
 
-  resources :boats do
+  resources :boats, only: [:show] do
     resources :reservations, only: [:new, :create]
     resources :reviews
     resources :availibilities
   end
 
-  resources :profile do
+  resources :profiles, only: [:show] do
     resources :reservations, only: [:index, :edit, :update, :show, :destroy]
   end
  end
