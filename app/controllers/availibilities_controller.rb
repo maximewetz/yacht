@@ -5,29 +5,30 @@ class AvailibilitiesController < ApplicationController
   end
 
   def new
-    @boat = boat.find(params[:boat_id])
+    @boat = current_user
     @availibility = Availibility.new
   end
 
   def create
-    @boat = boat.find(params[:boat_id])
+    @boat = current_user
     @availibility = Availibility.new(availibility_params)
-    @availibilty.boat = boat.find(params[:boat_id])
+    @availibility.boat = @availibility
     if @availibility.save
-      redirect_to boat_availibility(@availibility)
+      redirect_to user_boat_path(@boat)
     else
       render :new
     end
   end
   def show
-    # @boat = boat.find(params[:boat_id])
-    # @availibility = Availibility.find(params[:id])
-
+    @boat = boat.find(params[:boat_id])
+    @availibility = Availibility.find(availibility_params)
   end
 
   def edit
+    @boat = boat.find(params[:boat_id])
+    @availibility = Availibility.find(availibility_params)
   end
-  
+
   def update
     if @availibility.update(availibility_params)
       redirect_to @availibility, notice: 'availibility was successfully updated.'
@@ -40,9 +41,9 @@ class AvailibilitiesController < ApplicationController
     @availibility.destroy
     redirect_to availibilitys_url, notice: 'availibility was successfully destroyed.'
   end
-  
+
   private
   def availibility_params
     params.require(:availibility).permit(:available_from, :available_to, :boat_id)
-  end 
+  end
 end
