@@ -1,2 +1,15 @@
-<h1>Boats#new</h1>
-<p>Find me in app/views/boats/new.html.erb</p>
+<h1>Add your boat for rend</h1>
+
+<%= simple_form_for @boat  do |f| %>
+  <%= f.input :name %>
+  <%= f.input :boat_type, collection: ["sailboat", "motorboat", "catamaran", "RIB", "jet ski", "house boat"] %>
+  <%= f.input :city %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :size %>
+  <%= f.submit "Give the availibilities" %>
+<% end %>
+
+
+
+
