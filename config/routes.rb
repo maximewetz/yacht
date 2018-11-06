@@ -1,26 +1,14 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root to: 'pages#home'
 
-  resources :users, only: [:show] do
-    resources :profile
-
-    resources :boats do
-      resources :availibilities, only: [:new, :create, :edit, :update, :destroy]
-    end
-  end
+  resources :users, only: [:show]
+  resources :profiles
 
 
-
-   resources :boats, only: [:index, :show] do
-    resources :reservations, only: [:new, :create]
+  resources :boats do
+    resources :reservations
     resources :reviews
-    resources :availibilities, only: [:index, :show]
-  end
-
-
-  resources :profiles, only: [:show] do
-    resources :reservations, only: [:index, :edit, :update, :show, :destroy]
+    resources :availibilities
   end
  end
