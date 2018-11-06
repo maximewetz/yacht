@@ -1,9 +1,10 @@
 <h1>Our list of boats</h1>
 
 <ul>
-  <li><% @boats.each do |b| %>
-    <%= link_to b.name, b %>
+  <% @boats.each do |b| %>
+    <li><%= link_to b.name, b %></li>
     <% end %>
   </li>
 </ul>
 
+|<%= link_to 'Add new', new_boat_url %>
