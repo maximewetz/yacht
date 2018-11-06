@@ -9,7 +9,6 @@
   <li><%= @boat.size %></li>
   </ul>
 
- |
-<%= link_to 'Destroy', @boat, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-|<%= link_to 'Back', boats_path %>
+<% if current_user == @boat.user %>
+  <%= link_to 'edit', edit_boat_path(@boat) %>
+<% end %>
