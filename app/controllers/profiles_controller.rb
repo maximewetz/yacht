@@ -20,6 +20,18 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+  if @profile.save
+    redirect_to(:action => "show", :profile => @profile.id)
+  else
+    render :edit
+  end
+
   def destroy
     @profile = Profile.find(params[:id])
     @profile.destroy
