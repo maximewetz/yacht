@@ -2,7 +2,7 @@
 
 <ul>
   <li><% @boats.each do |b| %>
-    <%= b.name %>
+    <%= link_to b.name, b %>
     <% end %>
   </li>
 </ul>
