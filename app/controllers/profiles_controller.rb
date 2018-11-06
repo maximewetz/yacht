@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     if @profile.save
-      redirect_to boats_path
+      redirect_to profile_path(@profile)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
 
   def update
       @profile = Profile.find(params[:id])
-    if @profile.save
+    if @profile.save!
       redirect_to(:action => "show", :profile => @profile.id)
     else
       render :edit
