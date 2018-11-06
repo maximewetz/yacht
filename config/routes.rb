@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :boats
   end
 
-  resources :boats do
+  resources :boats, only: [:index, :show] do
     resources :reservations, only: [:new, :create]
     resources :reviews
     resources :availibilities
