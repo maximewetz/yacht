@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>About this boat</strong></p>
+  <ul>
+  <strong><%= @boat.name %></strong>
+  <li><%= @boat.boat_type %></li>
+  <li><%= @boat.city %></li>
+  <li><%= @boat.price %></li>
+  <li><%= @boat.size %></li>
+  </ul>
+
+ |
+<%= link_to 'Destroy', @boat, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+|<%= link_to 'Back', boats_path %>

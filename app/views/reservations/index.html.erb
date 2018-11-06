@@ -1,0 +1,8 @@
+<h1>Reservations/index</h1>
+
+<ul>
+  <% @reservations.each do |r| %>
+<li> <%= r.booked_from %></li>
+<li> <%= r.booked_to %></li>
+<% end %>
+</ul>
