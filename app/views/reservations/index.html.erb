@@ -1,8 +1,14 @@
-<h1>Reservations/index</h1>
+<h1>Reservations</h1>
 
+<p><strong>Hi<%= current_user.name %> your last reservations :</strong></p>
 <ul>
-  <% @reservations.each do |r| %>
-<li> <%= r.booked_from %></li>
-<li> <%= r.booked_to %></li>
-<% end %>
+  <strong><%= @reservations.each do |r| %></strong>
+  <li> <%= r.boat_name %></li>
+  <li> <%= r.booked_from %></li>
+  <li> <%= r.booked_to %></li>
 </ul>
+
+<%= link_to 'Edit', edit_boat_reservation_path(@reservations) %> |
+<%= link_to 'Destroy', @reservation, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+|<%= link_to 'Back', boat_reservation_path %>
