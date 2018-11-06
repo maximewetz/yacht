@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'availibilities/index'
+  get 'availibilities/new'
+  get 'availibilities/create'
+  get 'availibilities/show'
+  get 'availibilities/edit'
+  get 'availibilities/update'
   get 'boats/index'
   get 'boats/new'
   get 'boats/create'
@@ -14,8 +20,12 @@ Rails.application.routes.draw do
   end
 
   resources :boats do
-    resources :reservations
+    resources :reservations, only [:new, :create]
     resources :reviews
     resources :availibilities
+  end
+
+  resources :profile do
+    resources :reservations, only [:index, :edit, :update, :show, :destroy]
   end
  end

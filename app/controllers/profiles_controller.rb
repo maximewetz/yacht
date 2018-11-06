@@ -8,11 +8,15 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @profile = Profile.new
+
   end
 
   def create
+    @user = User.find[:user_id]
     @profile = Profile.new(profile_params)
+    @profile.user = @user
     if @profile.save
       redirect_to boats_path
     else
@@ -20,8 +24,21 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+  if @profile.save
+    redirect_to(:action => "show", :profile => @profile.id)
+  else
+    render :edit
+  end
+
   def destroy
     @profile = Profile.find(params[:id])
+    @user = @profile.user
     @profile.destroy
 
     # no need for app/views/cocktails/destroy.html.erb
