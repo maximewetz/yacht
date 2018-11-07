@@ -2,13 +2,13 @@
 
 <p><strong>Your last reservations :</strong></p>
 
-  <strong><%= @reservations.each do |r| %></strong>
+  <% @reservations.each do |r| %>
   <ul>
   <li> <%= r.boat.name %></li>
   <li> <%= r.booked_from %></li>
   <li> <%= r.booked_to %></li>
-  <%= link_to 'Edit', edit_user_reservation_path(current_user, r) %>
+  <%= link_to 'Edit', edit_user_reservation_path(current_user,r) %> | <%= link_to 'Back', root_path %>
   </ul>
   <% end %>
 
-  <%= link_to 'Back', root_path %>
+
