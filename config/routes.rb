@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'boats#index'
 
   resources :profiles do
     resources :boats, only: [:new, :create, :edit, :destroy] do
@@ -17,3 +17,4 @@ Rails.application.routes.draw do
     end
   end
 end
+

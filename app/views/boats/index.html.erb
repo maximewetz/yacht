@@ -2,7 +2,7 @@
 
 <ul>
   <% @boats.each do |b| %>
-    <li><%= link_to b.name, b %></li>
+    <li><%= link_to b.name, boat_path(b) %></li>
     <% end %>
   </li>
 </ul>

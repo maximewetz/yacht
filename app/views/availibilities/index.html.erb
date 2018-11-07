@@ -1,8 +1,8 @@
 
-<p>You are on the availibilities/index</p>
+<h1>Availibilities of <%= @boat.name %></h1>
 
-<h1>availibilities</h1>
-  <% @availibilities.each do |availibility| %>
-     <p><%= availibility.boat_id %></p>
+  <% @availibilities.each do |a| %>
+     <p><%= a.available_from %></p>
+     <p><%= a.available_to %></p>
   <% end %>
 
