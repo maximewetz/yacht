@@ -3,5 +3,6 @@
   <%= simple_form_for [@boat, @reservation] do |f| %>
         <%= f.input :booked_from %>
         <%= f.input :booked_to %>
+        <%= f.input :skipper, collection: ["Skipper", "Own Licence"] %>
         <%= f.submit "New reservation", class: 'btn btn-primary' %>
       <% end %>
