@@ -15,12 +15,10 @@ class BoatPolicy < ApplicationPolicy
   end
 
   def update?
-    if record.user == user
-    end
+    record.user == user
   end
 
-  def destroy
-    if record.user == user
-    end
+  def destroy?
+    record.user == user
   end
 end

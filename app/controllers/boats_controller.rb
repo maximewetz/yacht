@@ -14,7 +14,7 @@ class BoatsController < ApplicationController
     @boat = current_user.boats.build(boat_params)
     authorize @boat
     if @boat.save
-      redirect_to user_path(current_user)
+      redirect_to boat_path(@boat)
     else
       render :show
     end
@@ -39,6 +39,7 @@ class BoatsController < ApplicationController
 
   def destroy
     @boat = Boat.find(params[:id])
+    authorize @boat
     @boat.destroy
     redirect_to root_path
   end

@@ -9,6 +9,6 @@
   <li><%= @boat.size %></li>
   </ul>
 <% if current_user == @boat.user %>
-  <p><%= link_to 'edit', edit_boat_path(@boat) %> | <%= link_to 'destroy', boat_path(@boat), method: :delete %></p>
+  <p><%= link_to 'edit', edit_boat_path(@boat) %> | <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'} %></p>
 <% end %>
 
