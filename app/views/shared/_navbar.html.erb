@@ -11,7 +11,9 @@
 
       <!-- Links when logged in -->
       <%= link_to "My boats", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My reservations", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to "My reservations", user_reservations_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+
       <%= link_to "Add a new boat", new_boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
