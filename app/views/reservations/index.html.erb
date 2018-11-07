@@ -1,14 +1,14 @@
 <h1>Reservations</h1>
 
-<p><strong>Hi<%= current_user.name %> your last reservations :</strong></p>
-<ul>
+<p><strong>Your last reservations :</strong></p>
+
   <strong><%= @reservations.each do |r| %></strong>
-  <li> <%= r.boat_name %></li>
+  <ul>
+  <li> <%= r.boat.name %></li>
   <li> <%= r.booked_from %></li>
   <li> <%= r.booked_to %></li>
-</ul>
+  <%= link_to 'Edit', edit_user_reservation_path(current_user, r) %>
+  </ul>
+  <% end %>
 
-<%= link_to 'Edit', edit_boat_reservation_path(@reservations) %> |
-<%= link_to 'Destroy', @reservation, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-|<%= link_to 'Back', boat_reservation_path %>
+  <%= link_to 'Back', root_path %>
