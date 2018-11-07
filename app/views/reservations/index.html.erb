@@ -2,7 +2,7 @@
 
 <p><strong>Your last reservations :</strong></p>
 
-  <strong><%= @reservations.each do |r| %></strong>
+  <strong><% @reservations.each do |r| %></strong>
   <ul>
   <li> <%= r.boat.name %></li>
   <li> <%= r.booked_from %></li>
