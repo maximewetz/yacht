@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.4'
 gem 'simple-form-datepicker'
 gem 'devise'
+gem 'pundit'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

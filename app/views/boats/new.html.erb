@@ -1,4 +1,6 @@
+<div class="container">
 <h1>Add your boat for rent</h1>
+
 <%= simple_form_for @boat do |f| %>
   <%= f.input :name %>
   <%= f.input :boat_type, collection: ["sailboat", "motorboat", "catamaran", "RIB", "jet ski", "house boat"] %>
@@ -8,5 +10,5 @@
   <%= f.submit "Give the availibilities"%>
 <% end %>
 
-
+</div>
 
