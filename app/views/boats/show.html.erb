@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <p><strong>About this boat</strong></p>
-  <ul>
-  <strong><%= @boat.name %></strong>
+  <p class="title"><%= @boat.name %></p>
+  <ul class="list">
   <li><%= @boat.boat_type %></li>
   <li><%= @boat.city %></li>
-  <li><%= @boat.price %></li>
-  <li><%= @boat.size %></li>
+  <li>€<%= @boat.price %></li>
+  <li><%= @boat.size %> Feet</li>
   </ul>
 <% if current_user == @boat.user %>
   <p><%= link_to 'edit', edit_boat_path(@boat) %> | <%= link_to 'destroy', boat_path(@boat), method: :delete %></p>
 <% end %>
-
+</div>
