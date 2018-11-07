@@ -12,7 +12,7 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     if @boat.save
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       render :show
     end
