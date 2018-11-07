@@ -3,8 +3,11 @@
 <ul>
   <% @boats.each do |b| %>
     <li><%= link_to b.name, boat_path(b) %></li>
-    <% end %>
-  </li>
+      <% if policy(b).create? %>
+        <%= link_to "Edit", edit_boat_path(b) %>
+        <%= link_to "Delete the boat", boat_path(b), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
+  <% end %>
 </ul>
 
 
