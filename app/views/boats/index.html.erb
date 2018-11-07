@@ -1,10 +1,22 @@
-<h1>Our list of boats</h1>
+<div class="container">
+  <h2 class="text-center">Find the perfect boat</h2>
+    <div class="row">
+      <% @boats.each do |b| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/pepe.jpg');">
+              <div class="card-category"><%= b.city  %></div>
+              <div class="card-description">
+                <h2><%= b.name %></h2>
+                <p><%= b.boat_type %></p>
+              </div>
+              <img class="card-user avatar avatar-large" src="images/seb.jpg">
+              <a class="card-link" href="#" ></a>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
 
-<ul>
-  <% @boats.each do |b| %>
-    <li><%= link_to b.name, boat_path(b) %></li>
-    <% end %>
-  </li>
-</ul>
+
 
 
