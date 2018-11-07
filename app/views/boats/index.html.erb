@@ -16,22 +16,21 @@
   <h2 class="text-center">Find the perfect boat</h2>
     <div class="row">
       <% @boats.each do |b| %>
+        <%= link_to boat_path(b) do %>
           <div class="col-xs-12 col-sm-4">
             <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= a.sample %>);">
-              <div class="card-category"><%= b.city  %></div>
+              <div class="card-category"><%= b.city %></div>
               <div class="card-description">
                 <h2><%= b.name %></h2>
                 <p><%= b.boat_type %></p>
               </div>
               <img class="card-user avatar avatar-large" src="images/romain.jpeg">
-              <%= link_to url: my_path do %>
-              <a class="card-link" href="#"></a>
-              <% end %>
             </div>
           </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
+    </div>
 
 
 
