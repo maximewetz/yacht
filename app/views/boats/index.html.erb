@@ -15,7 +15,9 @@
                 <p><%= b.boat_type %></p>
               </div>
               <img class="card-user avatar avatar-large" src="images/romain.jpeg">
-              <a class="card-link" href="#" ></a>
+              <%= link_to url: my_path do %>
+              <a class="card-link" href="#"></a>
+              <% end %>
             </div>
           </div>
           <% end %>
