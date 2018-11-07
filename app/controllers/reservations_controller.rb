@@ -1,27 +1,31 @@
 class ReservationsController < ApplicationController
 
   def index
-    @reservations = Reservation.all
+    @reservations = policy_scope(Reservation)
   end
 
   def show
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
   end
 
   def new
     @boat = Boat.find(params[:boat_id])
     @user = current_user
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def edit
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
     @user = current_user
   end
 
   def create
     @boat             = Boat.find(params[:boat_id])
     @reservation      = Reservation.new(reservation_params)
+    authorize @reservation
     @reservation.user = current_user
     @reservation.boat = @boat
 
@@ -38,6 +42,7 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
     @user = current_user
     if @reservation.update(reservation_params)
       redirect_to user_reservations_path(current_user, @reservation)
@@ -48,6 +53,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
     @reservation.destroy(reservation_params)
     redirect_to user_reservations_path(current_user)
   end
