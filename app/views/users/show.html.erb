@@ -1,0 +1,9 @@
+<h1>Your Boats</h1>
+
+<ul><% @user.boats.each do |b| %>
+    <li><%= link_to b.name, boat_path(b) %></li>
+    <% end %>
+</ul>
+
+<h1>Your Reservations</h1>
+<p>NEED TO IMPLEMENT</p>
