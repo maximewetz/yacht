@@ -7,7 +7,15 @@
   <li><%= @boat.city %></li>
   <li>€<%= @boat.price %></li>
   <li><%= @boat.size %> Feet</li>
+  <li><%= @boat.price %></li>
+  <li><%= @boat.size %></li>
+  <% if @boat.avaible = true %>
+  <li><%= link_to 'Book', new_boat_reservation_path(@boat) %></li>
+  <% else %>
+  <%= puts 'This boat is not avaible' %>
+  <% end %>
   </ul>
+  
 <% if current_user == @boat.user %>
   <p><%= link_to 'edit', edit_boat_path(@boat) %> | <%= link_to 'destroy', boat_path(@boat), method: :delete %></p>
 <% end %>

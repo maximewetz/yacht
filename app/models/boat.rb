@@ -9,4 +9,9 @@ class Boat < ApplicationRecord
   validates :city, presence: true
   validates :price, presence: true, numericality: true
   validates :size, presence: true, numericality: true
+
+  def rented
+    self.avaible = false
+  end
+
 end
