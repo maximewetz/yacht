@@ -2,14 +2,19 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'boats#index'
 
-  resources :users, only: [:show]
-  resources :profiles
+  resources :profiles do
+    resources :boats, only: [:new, :create, :edit, :destroy] do
+      resources :availibilities, only: [:edit, :update, :new, :create]
+    end
+  end
 
 
-  resources :boats do
+
+  resources :boats, only: [:index, :show] do
     resources :reviews
-    resources :availibilities do
+    resources :availibilities, only: [:show] do
       resources :reservations
     end
   end
- end
+end
+
