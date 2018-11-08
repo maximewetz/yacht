@@ -1,35 +1,59 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('images/yacht-home.jpg');">
-      <div class="banner-content">
-        <h1>Waterbnb</h1>
-        <p>Rent a Yacht</p>
-        <div class="homebutton">
-        <div onclick="scrollWin(0, 800)" title="Boats" class="btn btn-danger">See boats</div>
-        <%= link_to "Add a boat", new_boat_path, class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
+
 <% a = ["images/download.jpeg","images/images2.jpeg", "images/images3.jpeg", "images/images4.jpeg", "images/images5.jpeg", "images/imqages.jpeg", "images/imagses.jpeg"] %>
 
 
-<!----ARRAY FOR DEMO FOTO'S, will be removed later----->
+<%= form_tag boats_path, method: :get do %>
 
-  <h2 class="text-center">Find the perfect boat</h2>
-    <div class="row">
-      <% @boats.each do |b| %>
-        <%= link_to boat_path(b) do %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= a.sample %>);">
-              <div class="card-category"><%= b.city %></div>
-              <div class="card-description">
-                <h2><%= b.name %></h2>
-                <p><%= b.boat_type %></p>
-              </div>
-              <img class="card-user avatar avatar-large" src="images/romain.jpeg">
-            </div>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
+  <%= text_field_tag :city,
+    params[:city],
+    class: "form-control",
+    placeholder: "city"
+  %>
+
+  <%= select_tag :boat_type,
+      options_for_select([" ","sailboat", "motorboat", "catamaran", "RIB", "jet_ski", "house_boat"]),
+      class: "form-control"
+    %>
+
+
+  <%= text_field_tag :price,
+    params[:price],
+    class: "form-control",
+    placeholder: "price per week"
+  %>
+
+  <%= text_field_tag :size,
+    params[:size],
+    class: "form-control",
+    placeholder: "size"
+  %>
+
+  <%= submit_tag 'Search', class: 'btn btn-primary'%>
+
+<% end %>
+
+
+
+<h2 class="text-center"></h2>
+   <div class="row">
+     <% @boats.each do |b| %>
+       <%= link_to boat_path(b) do %>
+         <div class="col-xs-12 col-sm-4">
+           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= a.sample %>);">
+             <div class="card-category"><%= b.city %></div>
+             <div class="card-description">
+               <h2><%= b.name %></h2>
+               <p><%= b.boat_type %></p>
+               <p><%= b.price %></p>
+               <p><%= b.size %></p>
+             </div>
+             <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+           </div>
+         </div>
+         <% end %>
+       <% end %>
+     </div>
+   </div>
 
 
 

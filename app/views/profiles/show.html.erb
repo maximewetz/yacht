@@ -1,11 +1,34 @@
-<h1>Profiles/show</h1>
+<h1>My Profile</h1>
+<%= link_to "Create profile", new_user_profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+<h2 class="text-center"></h2>
+    <div id="profile">
+      <h3><%= current_user.profile.first_name %></h3>
+      <h3><%= current_user.profile.last_name %></h3>
+      <h3><%= current_user.profile.phone_number %></h3>
+    </div>
 
-<% if current_user == @profile.user %>
-  <%= link_to 'edit profile', edit_profile_path(@profile) %>
-<% end %>
 
-<h3><%= @profile.first_name %></h3>
-<h3><%= @profile.last_name %></h3>
-<h3><%= @profile.phone_number %></h3>
+<% a = ["images/download.jpeg","images/images2.jpeg", "images/images3.jpeg", "images/images4.jpeg", "images/images5.jpeg", "images/imqages.jpeg", "images/imagses.jpeg"] %>
+<h2 class="text-center"></h2>
+    <div class="row">
+      <% @user.boats.each do |b| %>
+        <%= link_to boat_path(b) do %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= a.sample %>);">
+              <div class="card-category"><%= b.city %></div>
+              <div class="card-description">
+                <h2><%= b.name %></h2>
+                <p><%= b.boat_type %></p>
+              </div>
+              <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+<%= link_to 'edit profile', edit_user_profile_path(current_user) %>
+
 
 
