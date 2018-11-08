@@ -1,10 +1,16 @@
-<p>You are on the reviews/index</p>
-
+<div class="container">
 <h1>reviews</h1>
-  <% @reviews.each do |review| %>
-     <p><%= review.rating %></p>
-     <p><%= review.comment %></p>
-  <% end %>
+<ul>
+
+  <% @boat.reviews.each do |b| %>
+    <li> <% b.rating.times do %>
+      <i class="fas fa-star"></i>
+      <% end %>
+      <p><%= b.comment  %></p>
+  <% end %></li>
+</ul>
 
 
+<p><%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
+</div>
 
