@@ -1,5 +1,4 @@
 
-
 <div class="container">
 <%= form_tag boats_path, method: :get do %>
 
@@ -39,7 +38,7 @@
      <% @boats.each do |b| %>
        <%= link_to boat_path(b) do %>
          <div class="col-xs-12 col-sm-4">
-           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= i.sample %>);">
+           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path b.photo, height: 300, width: 400, crop: :fill %>');">
              <div class="card-category"><%= b.city %></div>
              <div class="card-description">
                <h2><%= b.name %></h2>

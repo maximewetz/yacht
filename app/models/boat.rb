@@ -1,4 +1,5 @@
 class Boat < ApplicationRecord
+
   belongs_to :user
   has_many :availibilities
   has_many :reservations
@@ -10,8 +11,6 @@ class Boat < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :size, presence: true, numericality: true
 
-  # def rented
-  #   self.avaible = false
-  # end
+  mount_uploader :photo, PhotoUploader
 
 end
