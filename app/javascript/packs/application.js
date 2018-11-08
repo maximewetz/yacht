@@ -9,3 +9,5 @@ function scrollFunction() {
         document.getElementById("btn btn-primary btn-lg").style.display = "none";
     }
 }
+
+$('#myModal').modal(options);
