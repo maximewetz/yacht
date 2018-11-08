@@ -6,6 +6,9 @@
   <li><%= @boat.boat_type %></li>
   <li><%= @boat.city %></li>
   <li>€<%= @boat.price %> / week</li>
+  <li><%= @boat.size %> Feet</li>
+  <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
+  </ul>
 
   <!-----RATINGS STARTS---->
   <% if @boat.reviews.count > 0%>
@@ -25,13 +28,6 @@
 <!-----RATING ENDS---->
 
 <!------BUTTONS------->
-
-<!---IF STATEMENT DISABLED---->
-<% #if @boat.avaible = true %>
-  <p><%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
-  <% #else %>
-  <%= puts 'This boat is not avaible' %>
-  <% #end %>
 <% if current_user == @boat.user %>
   <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %> <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
   <!---IF STATEMENT DISABLED---->
