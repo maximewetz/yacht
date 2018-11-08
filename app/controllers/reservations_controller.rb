@@ -35,7 +35,6 @@ class ReservationsController < ApplicationController
       else
         render :new
       end
-    end
   end
 
   def update
@@ -56,6 +55,9 @@ class ReservationsController < ApplicationController
     redirect_to user_reservations_path(current_user)
   end
 
+  # def booking_period
+  #   (booked_from..booked_to).to_a
+  # end
 
   private
 
