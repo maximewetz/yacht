@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 def index
   @reviews = policy_scope(Review)
+  @boat = Boat.find(params[:boat_id])
 end
 
 def show
@@ -8,16 +9,16 @@ def show
 end
 
 def new
-  @user = current_user
   @boat = Boat.find(params[:boat_id])
   @review = Review.new
+  @review.boat = @boat
   authorize @review
 end
 
 def create
-  @user = current_user
   @boat = Boat.find(params[:boat_id])
   @review = Review.new(reviews_params)
+  @review.boat = @boat
   authorize @review
   if @review.save
       redirect_to root_path
