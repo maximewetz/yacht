@@ -7,7 +7,12 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
-    authorize @profile
+    if @profile.nil?
+      redirect_to new_user_profile_path(current_user)
+    else
+      @profile = current_user.profile
+      authorize @profile
+    end
   end
 
 
@@ -56,6 +61,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :phone_number)
+    params.require(:profile).permit(:first_name, :last_name, :phone_number, :photo)
   end
 end

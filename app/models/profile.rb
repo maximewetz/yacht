@@ -5,4 +5,5 @@ class Profile < ApplicationRecord
   validates :phone_number, numericality: true
 
   validates :user_id, uniqueness: true
+  mount_uploader :photo, PhotoUploader
 end

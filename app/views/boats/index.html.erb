@@ -48,7 +48,7 @@
                <p><%= b.size %> feet</p>
                <p>
                 <!--making stars for average rating on card--->
-                <% if b.reviews.count > 0%>
+                <% if b.reviews.count > 0 %>
                   <% a = [] %>
                   <% b.reviews.each do |r|  %>
                     <%  a << r.rating %>
