@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
     authorize @profile
     @profile.user = current_user
     if @profile.save
-      redirect_to user_profile_path(current_user)
+      redirect_to user_profile_path(current_user), notice: 'User profile was successfully created!'
     else
       render :new
     end
@@ -34,8 +34,8 @@ class ProfilesController < ApplicationController
   def update
       @profile = current_user.profile
       authorize @profile
-    if @profile.save!
-      redirect_to(:action => "show", :profile => @profile.id)
+    if @profile.update(profile_params)
+      redirect_to user_profile_path(current_user)
     else
       render :edit
     end

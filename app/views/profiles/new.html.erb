@@ -1,8 +1,12 @@
-<h1>Profiles/new</h1>
 
-<%= simple_form_for [@profile] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :phone_number %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+<div class="align_form_profile">
+  <h1>My profile information</h1>
+</div>
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone_number %>
+<div class="align_form_profile">
+    <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+  <% end %>
