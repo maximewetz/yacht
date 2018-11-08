@@ -1,17 +1,25 @@
-<h1>My Profile</h1>
-<%= link_to "Create profile", new_user_profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-<h2 class="text-center"></h2>
-    <div id="profile">
+<div class="profile_style">
+  <div class="profile_flex1">
+    <h2>My Profile</h2>
+  </div>
+  <div class="profile_flex2"></div>
+    <div class="card-user-infos">
+      <h2 class="text-center"></h2>
       <h3><%= current_user.profile.first_name %></h3>
       <h3><%= current_user.profile.last_name %></h3>
       <h3><%= current_user.profile.phone_number %></h3>
     </div>
+  </div>
+  <div class="profile_flex3">
+  <%= link_to 'edit profile', edit_user_profile_path(current_user), class: "btn btn-primary" %>
+  </div>
+</div>
 
 
 <% a = ["images/download.jpeg","images/images2.jpeg", "images/images3.jpeg", "images/images4.jpeg", "images/images5.jpeg", "images/imqages.jpeg", "images/imagses.jpeg"] %>
 <h2 class="text-center"></h2>
     <div class="row">
-      <% @user.boats.each do |b| %>
+      <% current_user.boats.each do |b| %>
         <%= link_to boat_path(b) do %>
           <div class="col-xs-12 col-sm-4">
             <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= a.sample %>);">
@@ -28,7 +36,7 @@
       </div>
     </div>
 
-<%= link_to 'edit profile', edit_user_profile_path(current_user) %>
+
 
 
 

@@ -3,4 +3,6 @@ class Profile < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :phone_number, numericality: true
+
+  validates :user_id, uniqueness: true
 end
