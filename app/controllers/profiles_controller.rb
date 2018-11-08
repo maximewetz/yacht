@@ -1,12 +1,14 @@
 class ProfilesController < ApplicationController
 
   def index
-    @profiles = Profile.all
+    @profiles = policy_scope(Profile)
+    @user = current_user
   end
 
   def show
     @profile = current_user.profile
     authorize @profile
+    end
   end
 
   def new
