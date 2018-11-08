@@ -32,7 +32,7 @@
 
 <% end %>
 
-
+<!-------CARDS START-------->
 
 <h2 class="text-center"></h2>
    <div class="row">
@@ -44,8 +44,22 @@
              <div class="card-description">
                <h2><%= b.name %></h2>
                <p><%= b.boat_type %></p>
-               <p><%= b.price %></p>
-               <p><%= b.size %></p>
+               <p>€<%= b.price %> / week</p>
+               <p><%= b.size %> feet</p>
+               <p>
+                <% if b.reviews.count > 0%>
+                <!--making stars for average rating on card--->
+                  <% a = [] %>
+                  <% b.reviews.each do |r|  %>
+                    <%  a << r.rating %>
+                  <% end %>
+                  <% c = a.inject{ |sum, el| sum + el } / a.size %>
+                  <% c.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                <% end %>
+                </p>
+                <!---END stars making--->
              </div>
              <img class="card-user avatar avatar-large" src="images/romain.jpeg">
            </div>
@@ -53,6 +67,7 @@
          <% end %>
        <% end %>
      </div>
+     <!------------CARDS FINISH------->
    </div>
 
 
