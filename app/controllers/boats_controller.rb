@@ -14,7 +14,7 @@ class BoatsController < ApplicationController
       @boats = @boats.where(boat_type: params[:boat_type])
     end
 
-    if params[:price]
+    if params[:price].present?
       @boats = @boats.where(price: params[:price])
     end
 
