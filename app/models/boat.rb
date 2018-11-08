@@ -1,4 +1,6 @@
 class Boat < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+
   belongs_to :user
   has_many :availibilities
   has_many :reservations
