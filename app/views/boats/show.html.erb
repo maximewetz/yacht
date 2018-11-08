@@ -6,19 +6,25 @@
   <li><%= @boat.boat_type %></li>
   <li><%= @boat.city %></li>
   <li>€<%= @boat.price %></li>
-  <% a = [] %>
-  <% @boat.reviews.each do |r|  %>
-  <%  a << r.rating %>
-  <% end %>
-  <%= link_to boat_reviews_path(@boat) do %>
-  <li>average rating:</li>
-  <% b = a.inject{ |sum, el| sum + el }. / a.size %>
-   <% b.times do %>
-  <i class="fas fa-star"></i>
-  <% end %>
+
+  <!-----RATINGS STARTS---->
+  <% if @boat.reviews.count > 0%>
+    <% a = [] %>
+    <% @boat.reviews.each do |r|  %>
+      <%  a << r.rating %>
+    <% end %>
+    <%= link_to boat_reviews_path(@boat) do %>
+     <li>average rating:</li>
+      <% b = a.inject{ |sum, el| sum + el } / a.size %>
+      <% b.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    <% end %>
   <% end %>
   </ul>
+<!-----RATING ENDS---->
 
+<!------BUTTONS------->
   <% if @boat.avaible = true %>
   <p><%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
   <% else %>
