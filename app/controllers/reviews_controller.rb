@@ -21,7 +21,7 @@ def create
   @review.boat = @boat
   authorize @review
   if @review.save
-      redirect_to root_path
+      redirect_to boat_path(@boat)
   else
       render :new
   end

@@ -1,3 +1,4 @@
+<div class="container">
 <h1>reviews</h1>
 <ul>
 
@@ -5,10 +6,11 @@
     <li> <% b.rating.times do %>
       <i class="fas fa-star"></i>
       <% end %>
-      <p><%= b.comment  %></p>l
-
-  <% end %>
+      <p><%= b.comment  %></p>
+  <% end %></li>
 </ul>
 
 
+<p><%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
+</div>
 
