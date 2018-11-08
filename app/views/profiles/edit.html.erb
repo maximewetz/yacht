@@ -1,10 +1,14 @@
-<h1>Profiles/edit</h1>
 
+<div class="align_form">
+  <h2>Edit my profile</h2>
+<div/>
 <%= simple_form_for [@user, @profile] do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :phone_number %>
+<div class="align_form">
   <%= f.button :submit, class: "btn btn-primary" %>
+</div>
 <% end %>
 
 

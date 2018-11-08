@@ -3,11 +3,13 @@
 @import "navbar";
 @import "home";
 @import "cards";
+@import "profile";
 
 
 h2{
   margin-bottom: 30px;
   margin-top: 50px;
+  text-align: center;
 }
 .title{
   font-weight: 900;
@@ -20,6 +22,15 @@ h2{
   margin-left: 150px;
 }
 
-.list{
-
+.simple_form {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  margin: auto;
+  text-align: left;
 }
+
+
+
+
+

@@ -21,6 +21,21 @@
   position: relative;
   border-radius: 5px;
   margin-bottom: 20px;
+   vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  opacity: 0.9;
+
+}
+
+.card:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 .card-user {
   position: absolute;
@@ -52,7 +67,4 @@
   z-index:2;
   background: black;
   opacity: 0;
-}
-.card-link:hover{
-  opacity: 0.1;
 }
