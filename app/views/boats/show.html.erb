@@ -40,6 +40,19 @@
       <div class="card-description">
         <h2><%= @boat.name %></h2>
         <p><%= @boat.boat_type %></p>
+         <p>
+         <!--making stars for average rating on card--->
+                <% if @boat.reviews.count > 0%>
+                  <% a = [] %>
+                  <% @boat.reviews.each do |r|  %>
+                    <%  a << r.rating %>
+                  <% end %>
+                  <% c = a.inject{ |sum, el| sum + el } / a.size %>
+                  <% c.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                <% end %>
+                </p>
       </div>
       <img class="card-user avatar avatar-large" src="images/romain.jpeg">
     </div>
