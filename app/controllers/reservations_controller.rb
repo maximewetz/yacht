@@ -29,9 +29,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @reservation.boat = @boat
 
-    if @boat.avaible?
       if @reservation.save
-        @boat.rented
         @boat.save
         redirect_to user_reservations_path(current_user)
       else
@@ -57,6 +55,7 @@ class ReservationsController < ApplicationController
     @reservation.destroy(reservation_params)
     redirect_to user_reservations_path(current_user)
   end
+
 
   private
 
