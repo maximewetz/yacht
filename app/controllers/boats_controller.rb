@@ -3,15 +3,35 @@ class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @boats = policy_scope(Boat)
+
+    @boats = Boat.all
+
+    if params[:city].present?
+      @boats = @boats.where(city: params[:city])
+    end
+
+    if params[:boat_type].present?
+      @boats = @boats.where(boat_type: params[:boat_type])
+    end
+
+    if params[:price].present?
+      @boats = @boats.where(price: params[:price])
+    end
+
+    if params[:size].present?
+      @boats = @boats.where(size: params[:size])
+    end
+
+    policy_scope(@boats)
+
   end
 
-  def new
-    @boat = Boat.new
-    authorize @boat
-  end
+    def new
+      @boat = Boat.new
+      authorize @boat
+    end
 
-  def create
+    def create
     # @boat = Boat.new(boat_params)
     # @boat.user = current_user
     @boat = current_user.boats.build(boat_params)
