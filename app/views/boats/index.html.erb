@@ -3,31 +3,31 @@
 <div class="container">
 <%= form_tag boats_path, method: :get do %>
 
-  <%= text_field_tag :city,
+  <p><%= text_field_tag :city,
     params[:city],
     class: "form-control",
     placeholder: "city"
-  %>
+  %></p>
 
-  <%= select_tag :boat_type,
+  <p><%= select_tag :boat_type,
       options_for_select([" ","sailboat", "motorboat", "catamaran", "RIB", "jet_ski", "house_boat"]),
       class: "form-control"
-    %>
+    %></p>
 
 
-  <%= text_field_tag :price,
+ <p> <%= text_field_tag :price,
     params[:price],
     class: "form-control",
     placeholder: "price per week"
-  %>
+  %></p>
 
-  <%= text_field_tag :size,
+ <p> <%= text_field_tag :size,
     params[:size],
     class: "form-control",
     placeholder: "size"
-  %>
+  %></p>
 
-  <%= submit_tag 'Search', class: 'btn btn-primary'%>
+  <p><%= submit_tag 'Search', class: 'btn btn-primary'%></p>
 
 <% end %>
 </div>
