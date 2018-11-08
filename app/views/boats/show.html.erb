@@ -18,3 +18,17 @@
   <p><%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> | <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %></p>
 <% end %>
 </div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @boat.photo, height: 300, width: 400, crop: :fill %>')">
+      <div class="card-category"><%= @boat.city %></div>
+      <div class="card-description">
+        <h2><%= @boat.name %></h2>
+        <p><%= @boat.boat_type %></p>
+      </div>
+      <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+    </div>
+  </div>
+</div>

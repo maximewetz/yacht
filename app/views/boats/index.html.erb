@@ -1,7 +1,4 @@
 
-<% a = ["images/download.jpeg","images/images2.jpeg", "images/images3.jpeg", "images/images4.jpeg", "images/images5.jpeg", "images/imqages.jpeg", "images/imagses.jpeg"] %>
-
-
 <!----ARRAY FOR DEMO FOTO'S, will be removed later----->
 
   <h2 class="text-center">Find the perfect boat</h2>
@@ -9,7 +6,8 @@
       <% @boats.each do |b| %>
         <%= link_to boat_path(b) do %>
           <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= a.sample %>);">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path b.photo, height: 300, width: 400, crop: :fill %>')">
               <div class="card-category"><%= b.city %></div>
               <div class="card-description">
                 <h2><%= b.name %></h2>
