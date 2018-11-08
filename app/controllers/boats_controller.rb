@@ -14,7 +14,7 @@ class BoatsController < ApplicationController
     @boat = current_user.boats.build(boat_params)
     authorize @boat
     if @boat.save
-      redirect_to boat_path(@boat)
+      redirect_to boat_availibility_path(@boat)
     else
       render :show
     end

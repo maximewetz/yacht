@@ -4,7 +4,7 @@
 <%= simple_form_for [@boat, @availibility]  do |f| %>
 <%= f.input :available_from, as: :date %>
 <%= f.input :available_to, as: :date %>
-<%= f.submit "Confirm your availibility" %>
+<%= f.submit "Confirm your availibility", class: 'btn btn-primary' %>
 <% end %>
 
 
