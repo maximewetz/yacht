@@ -2,7 +2,7 @@ class Boat < ApplicationRecord
   belongs_to :user
   has_many :availibilities
   has_many :reservations
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :boat_type, presence: true, inclusion: { in: ["sailboat", "motorboat", "catamaran", "RIB", "jet_ski", "house_boat"] }

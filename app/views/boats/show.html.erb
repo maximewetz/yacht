@@ -6,15 +6,31 @@
   <li><%= @boat.boat_type %></li>
   <li><%= @boat.city %></li>
   <li>€<%= @boat.price %></li>
-  <li><%= @boat.size %> Feet</li>
+
+  <!-----RATINGS STARTS---->
+  <% if @boat.reviews.count > 0%>
+    <% a = [] %>
+    <% @boat.reviews.each do |r|  %>
+      <%  a << r.rating %>
+    <% end %>
+    <%= link_to boat_reviews_path(@boat) do %>
+     <li>average rating:</li>
+      <% b = a.inject{ |sum, el| sum + el } / a.size %>
+      <% b.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+  </ul>
+<!-----RATING ENDS---->
+
+<!------BUTTONS------->
   <% if @boat.avaible = true %>
-  <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
+  <p><%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
   <% else %>
   <%= puts 'This boat is not avaible' %>
   <% end %>
-  </ul>
-
 <% if current_user == @boat.user %>
-  <p><%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> | <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %></p>
+  <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %> <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
 <% end %>
 </div>
