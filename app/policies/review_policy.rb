@@ -1,10 +1,8 @@
-class BoatPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
-      # scope.where(user: user) # just voir les boats du user
     end
-  end
 
 
   def create?
@@ -21,5 +19,6 @@ class BoatPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
+  end
   end
 end
