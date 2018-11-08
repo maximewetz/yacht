@@ -7,8 +7,6 @@
   <li><%= @boat.city %></li>
   <li>€<%= @boat.price %></li>
   <li><%= @boat.size %> Feet</li>
-  <li><%= @boat.price %></li>
-  <li><%= @boat.size %></li>
   <% if @boat.avaible = true %>
   <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
   <% else %>
