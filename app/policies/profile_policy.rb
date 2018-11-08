@@ -1,16 +1,14 @@
-class ReviewPolicy < ApplicationPolicy
+class ProfilePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
-  def new?
-    true
   end
-  def create?
+  def show?
     true
   end
 
-  def show?
+  def create?
     true
   end
 
@@ -21,5 +19,5 @@ class ReviewPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
-  end
+
 end
