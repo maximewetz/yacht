@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'pages/home'
   devise_for :users
-  root to: 'boats#index'
+  root to: 'pages#home'
 
   resources :users, only: [:show] do
     resources :reservations, only: [:index, :edit, :update, :destroy, :show]
