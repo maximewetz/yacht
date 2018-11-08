@@ -7,7 +7,12 @@ class ProfilesController < ApplicationController
   def show
     @user = current_user
     @profile = current_user.profile
-    authorize @profile
+    if @profile.nil?
+      redirect_to new_user_profile_path(current_user)
+    else
+      @profile = current_user.profile
+      authorize @profile
+    end
   end
 
   def new
