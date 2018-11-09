@@ -1,3 +1,6 @@
+<%= content_for :title do  %>
+WaterBNB - <%= @profile.first_name%> <%= @profile.last_name%>
+<% end %>
 <div class="container">
 <div class="profile_style">
   <div class="profile_flex1">
@@ -35,7 +38,7 @@
                 <h2><%= b.name %></h2>
                 <p><%= b.boat_type %></p>
               </div>
-              <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+
             </div>
           </div>
           <% end %>

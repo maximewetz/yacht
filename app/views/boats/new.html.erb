@@ -1,3 +1,7 @@
+<%= content_for :title do  %>
+WaterBNB - new boat
+<% end %>
+
 <div class="container">
 <h2>Add your boat for rent</h2>
 
@@ -9,7 +13,7 @@
   <%= f.input :size %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit "Add a boat", class: 'btn btn-primary'%>
+  <%= f.submit "Add boat", class: 'btn btn-primary'%>
 <% end %>
 
 </div>

@@ -8,7 +8,7 @@
 @import "banner_show";
 
 
-h2{
+h2 {
   margin-bottom: 30px;
   margin-top: 50px;
   text-align: center;
@@ -16,6 +16,17 @@ h2{
 .title{
   font-weight: 900;
   font-size: 40px;
+}
+
+.flexview{
+  display: flex;
+}
+
+.search{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 .container{
   margin-top: 50px;
