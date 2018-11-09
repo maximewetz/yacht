@@ -9,7 +9,12 @@ Modify - <%= @boat.name  %>
   <%= f.input :city %>
   <%= f.input :price %>
   <%= f.input :size %>
+
+  </div class="align_form">
+
    <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
+
   <%= f.submit "confirm modification", class: 'btn btn-primary' %>
+  </div>
 <% end %>
