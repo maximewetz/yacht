@@ -2,17 +2,44 @@
 <h1>Reservation</h1>
 
 <ul>
-  <li> Boat Name: <%= @reservation.boat.name %></li>
+  <li> Boat Name: "<%= @reservation.boat.name %>"</li>
   <li> Boat Type: <%= @reservation.boat.boat_type %></li>
   <li> City: <%= @reservation.boat.city %></li>
-  <li> Size: <%= @reservation.boat.size %></li>
+  <li> Size: <%= @reservation.boat.size %> feet</li>
   <li> From <%= @reservation.booked_from %> to <%= @reservation.booked_to %></li>
-  <li>Price per day :<%= @reservation_price %></li>
-  <li>Number of days :<%= @number_of_days %></li>
-  <li>Total price for the booking = <%= @total_price %></li>
+  <li>Price per day : €<%= @reservation_price %></li>
+  <li>Number of days : <%= @number_of_days %></li>
+  <li>Total price for the booking: €<%= @total_price %></li>
   <li> Owner of the boat : <%= @reservation.boat.user.profile.last_name %> <%= @reservation.boat.user.profile.first_name %></li>
-  <%= cl_image_tag @reservation.boat.photo, height: 300, width: 400, crop: :fill %>
-</ul>
-
-|<%= link_to 'Back', user_reservations_path(current_user, @reservation) %>
+<p><%= link_to 'back', user_reservations_path(current_user), class: 'btn btn-primary' %></p>
 </div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @reservation.boat.photo, height: 300, width: 400, crop: :fill %>')">
+      <div class="card-category"><%= @reservation.boat.city %></div>
+      <div class="card-description">
+        <h2><%= @reservation.boat.name %></h2>
+        <p><%= @reservation.boat.boat_type %></p>
+         <p>
+         <!--making stars for average rating on card--->
+                <% if @reservation.boat.reviews.count > 0%>
+                  <% a = [] %>
+                  <% @reservation.boat.reviews.each do |r|  %>
+                    <%  a << r.rating %>
+                  <% end %>
+                  <% c = a.inject{ |sum, el| sum + el } / a.size %>
+                  <% c.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                <% end %>
+                </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
