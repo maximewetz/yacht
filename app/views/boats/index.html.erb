@@ -63,8 +63,10 @@ WaterBNB - All boats
                 </p>
                 <!---END stars making--->
              </div>
-             <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+
+             <%= cl_image_tag b.user.profile.photo, class: "card-user avatar avatar-large" %>
            </div>
+
          </div>
          <% end %>
        <% end %>
@@ -76,3 +78,4 @@ WaterBNB - All boats
 
 
 
+cl_image_tag(@profile.photo
