@@ -10,9 +10,11 @@
             <h2 class="text-center"></h2>
               <%= cl_image_tag(@profile.photo, class: "avatar-bordered", width: 150, height: 150, crop: :thumb, gravity: :face) %>
             <div>
-              <h3><%= current_user.profile.first_name %></h3>
-              <h3><%= current_user.profile.last_name %></h3>
-              <h3><%= current_user.profile.phone_number %></h3>
+              <ul>
+              <li><h3><%= current_user.profile.first_name %></h3></li>
+              <li><h3><%= current_user.profile.last_name %></h3></li>
+              <li><h3><%= current_user.profile.phone_number %></h3></li>
+            </ul>
             </div>
             <div class="profile_flex3">
               <%= link_to 'edit profile', edit_user_profile_path(current_user), class: "btn btn-primary" %>
@@ -35,7 +37,7 @@
                   <h2><%= b.name %></h2>
                   <p><%= b.boat_type %></p>
                 </div>
-                <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+
               </div>
             </div>
             <% end %>
