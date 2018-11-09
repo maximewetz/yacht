@@ -1,7 +1,7 @@
 
 <div class="container">
+<h2>What are you looking for?</h2>
 <div class="simple_form">
-
 <%= form_tag boats_path, method: :get do %>
 
   <p><%= text_field_tag :city,
@@ -48,7 +48,7 @@
                <p><%= b.size %> feet</p>
                <p>
                 <!--making stars for average rating on card--->
-                <% if b.reviews.count > 0%>
+                <% if b.reviews.count > 0 %>
                   <% a = [] %>
                   <% b.reviews.each do |r|  %>
                     <%  a << r.rating %>

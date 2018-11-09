@@ -11,7 +11,6 @@
   <li>Total price for the booking = <%= @total_price %></li>
   <li> Owner of the boat : <%= @reservation.boat.user.profile.last_name %> <%= @reservation.boat.user.profile.first_name %></li>
   <%= cl_image_tag @reservation.boat.photo, height: 300, width: 400, crop: :fill %>
-
 </ul>
 
 |<%= link_to 'Back', user_reservations_path(current_user, @reservation) %>
