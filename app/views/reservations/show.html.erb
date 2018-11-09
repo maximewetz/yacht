@@ -11,11 +11,7 @@
   <li>Number of days : <%= @number_of_days %></li>
   <li>Total price for the booking: €<%= @total_price %></li>
   <li> Owner of the boat : <%= @reservation.boat.user.profile.last_name %> <%= @reservation.boat.user.profile.first_name %></li>
-<<<<<<< HEAD
   </ul>
-=======
-  <%= cl_image_tag @reservation.boat.user.profile.photo%>
->>>>>>> aa1c02dcb2364470e5d4478f2fcd59c3a2b40997
 <p><%= link_to 'back', user_reservations_path(current_user), class: 'btn btn-primary' %></p>
   </div>
 
