@@ -6,6 +6,7 @@
 @import "profile";
 @import "hover";
 
+
 h2 {
   margin-bottom: 30px;
   margin-top: 50px;
@@ -44,15 +45,38 @@ h2 {
   padding: 15px;
   margin: auto;
   text-align: left;
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.8);
+  background-color: #E8E8E8;
 }
 
 .avatar-bordered {
-  width: 30px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+  margin-top: -40px;
 }
 
+.margin_btn
+{
+margin-left: 33%;
+}
+.btn
+{
+border-radius: 5%;
+}
+
+.align_form
+{
+text-align: center;
+}
+
+.boat_card
+{
+background-color: #E8E8E8;
+box-shadow: 1px 1px 3px rgba(150, 150, 150, 0.8);
+padding: 20px;
+margin: 15px 20px;
+}
 
 
 

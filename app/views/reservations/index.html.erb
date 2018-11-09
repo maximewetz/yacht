@@ -1,18 +1,24 @@
 <div class="container">
-<h1>Reservations</h1>
+<h1 class="text-center">Reservations</h1>
 
-<p><strong>Your last reservations :</strong></p>
+<p class="text-center"><strong>Your last reservations</strong></p>
 
-
+<div class="row">
   <% @reservations.each do |r| %>
-  <ul>
-  <li> <%= r.boat.name %></li>
-  <li> <%= r.booked_from %></li>
-  <li> <%= r.booked_to %></li>
-  <li> <%= r.skipper %></li>
-  </ul>
-  <p><%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %> <%= link_to 'Details', user_reservation_path(current_user,r), class: 'btn btn-primary' %> <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
-  <% end %>
-</p>
 
+    <div class="col-md-3 boat_card">
+      <ul class="list-unstyled">
+        <li> <strong>Boat name:</strong> <%= r.boat.name %></li>
+        <li> <strong>From:</strong> <%= r.booked_from %></li>
+        <li> <strong>To:</strong> <%= r.booked_to %></li>
+        <li> <strong>Captain:</strong> <%= r.skipper %></li>
+      </ul>
+      <div class="text-center">
+        <p><%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %>  <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+        </p>
+      </div>
+    </div>
+  <% end %>
 </div>
+</div>
+
