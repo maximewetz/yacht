@@ -14,11 +14,12 @@
         <li> <strong>Captain:</strong> <%= r.skipper %></li>
       </ul>
       <div class="text-center">
-        <p><%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %>  <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+        <p><%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %> <%= link_to 'details', user_reservation_path(current_user,r), class: 'btn btn-primary' %>
         </p>
       </div>
     </div>
   <% end %>
+  <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
 </div>
 </div>
 
