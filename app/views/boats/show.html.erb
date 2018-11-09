@@ -36,9 +36,10 @@ WaterBNB - <%= @boat.name  %>
           <p> <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
             <!------BUTTONS------->
             <% if current_user == @boat.user %>
-            <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %> <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
             <!---IF STATEMENT DISABLED---->
+            <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %>
             <% end %>
+            <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
           </div>
         </div>
 
