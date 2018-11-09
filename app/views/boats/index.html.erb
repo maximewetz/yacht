@@ -1,7 +1,40 @@
 <%= content_for :title do  %>
 WaterBNB - All boats
 <% end %>
+<div class="search">
+<h2>What are you looking for?</h2>
+<div class="simple_form">
+<%= form_tag boats_path, method: :get do %>
 
+  <p><%= text_field_tag :city,
+    params[:city],
+    class: "form-control",
+    placeholder: "city"
+  %></p>
+
+  <p><%= select_tag :boat_type,
+      options_for_select([" ","sailboat", "motorboat", "catamaran", "RIB", "jet_ski", "house_boat"]),
+      class: "form-control",
+        placeholder: "Pick a type"
+    %></p>
+
+
+ <p> <%= text_field_tag :price,
+    params[:price],
+    class: "form-control",
+    placeholder: "price per day"
+  %></p>
+
+ <p> <%= text_field_tag :size,
+    params[:size],
+    class: "form-control",
+    placeholder: "size"
+  %></p>
+  <div class="align_form">
+  <p><%= submit_tag 'Search', class: 'btn btn-primary'%></p>
+  </div>
+<% end %>
+</div>
 
 <h2 class="text-center"></h2>
    <div class="row fixed-margin">
@@ -30,7 +63,7 @@ WaterBNB - All boats
                 </p>
                 <!---END stars making--->
              </div>
-             <%= cl_image_tag b.user.profile.photo, class: "card-user avatar avatar-large" %>
+
            </div>
          </div>
          <% end %>
