@@ -1,5 +1,9 @@
+<%= content_for :title do  %>
+WaterBNB - new boat
+<% end %>
+
 <div class="container">
-<h1>Add your boat for rent</h1>
+<h2>Add your boat for rent</h2>
 
 <%= simple_form_for @boat do |f| %>
   <%= f.input :name %>
@@ -10,6 +14,7 @@
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
 
+
   <% if current_user.profile.nil? %>
     <%= render "shared/popupprofile" %>
       <!-- Button trigger modal -->
@@ -19,6 +24,8 @@
   <% else %>
       <%= f.submit "Add a boat", class: 'btn btn-primary'%>
   <% end %>
+
 <% end %>
+  </div>
 
 

@@ -4,16 +4,33 @@
 @import "home";
 @import "cards";
 @import "profile";
+@import "hover";
 
 
-h2{
+h2 {
   margin-bottom: 30px;
   margin-top: 50px;
   text-align: center;
 }
+
+.inline{
+  display:inline;
+}
+
 .title{
   font-weight: 900;
   font-size: 40px;
+}
+
+.flexview{
+  display: flex;
+}
+
+.search{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 .container{
   margin-top: 50px;
@@ -22,24 +39,64 @@ h2{
   margin-left: 150px;
 }
 
+.container2{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.placement{
+  margin-top: 80px;
+}
+.reservationimage{
+  margin-top: 140px
+}
+
 .simple_form {
   width: 100%;
   max-width: 400px;
   padding: 15px;
   margin: auto;
   text-align: left;
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.8);
+  background-color: #E8E8E8;
 }
 
 .avatar-bordered {
-  width: 30px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+  margin-top: -40px;
+}
+
+.margin_btn
+{
+margin-left: 33%;
+}
+.btn
+{
+border-radius: 5%;
 }
 .modal-body {
   font-color: black;
 }
 
+.align_form
+{
+text-align: center;
+}
 
+.boat_card
+{
+background-color: #E8E8E8;
+box-shadow: 1px 1px 3px rgba(150, 150, 150, 0.8);
+padding: 20px;
+margin: 15px 20px;
+}
+
+.center-button {
+  text-align: center;
+}
 
 

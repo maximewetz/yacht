@@ -1,34 +1,34 @@
-<div class="profile_style">
+<div class="text-center">
   <div class="profile_flex1">
-    <h2>My Profile</h2>
-  </div>
-  <div class="profile_flex2"></div>
-    <div class="card-user-infos">
-      <h2 class="text-center"></h2>
-      <div class="avatar-bordered">
-        <%= cl_image_tag(@profile.photo, width: 150, height: 150, crop: :thumb, gravity: :face) %>
-      </div>
-
-      <h3><%= current_user.profile.first_name %></h3>
-      <h3><%= current_user.profile.last_name %></h3>
-      <h3><%= current_user.profile.phone_number %></h3>
+            <h2>My Profile</h2>
+          </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="profile_style">
+        <div class="text-center">
+          <div class="card-user-infos">
+            <h2 class="text-center"></h2>
+              <%= cl_image_tag(@profile.photo, class: "avatar-bordered", width: 150, height: 150, crop: :thumb, gravity: :face) %>
+            <div>
+              <ul>
+              <li><h3><%= current_user.profile.first_name %></h3></li>
+              <li><h3><%= current_user.profile.last_name %></h3></li>
+              <li><h3><%= current_user.profile.phone_number %></h3></li>
+            </ul>
+            </div>
+            <div class="profile_flex3">
+              <%= link_to 'edit profile', edit_user_profile_path(current_user), class: "btn btn-primary" %>
+              <%= link_to "Add a boat", new_boat_path(current_user), class: "btn btn-danger" %>
+            </div>
+          </div>
+        </div>
     </div>
-  </div>
-  <div class="profile_flex3">
-  <%= link_to 'edit profile', edit_user_profile_path(current_user), class: "btn btn-primary" %>
-  </div>
-</div>
+    </div>
 
-  <% if current_user.profile.nil? %>
-    <%= render "shared/popupprofile" %>
-            <!-- Button trigger modal -->
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-    Add a boat
-    </button>
-  <% else %>
-    <%= link_to "Add a boat", new_boat_path(current_user), class: "btn btn-danger" %>
-  <% end %>
 
+ 
+
+    
 <h2 class="text-center"></h2>
     <div class="row">
       <% current_user.boats.each do |b| %>
@@ -41,14 +41,29 @@
               <div class="card-description">
                 <h2><%= b.name %></h2>
                 <p><%= b.boat_type %></p>
+
+    <div class="class-md-9">
+      <div class="row">
+        <% current_user.boats.each do |b| %>
+          <%= link_to boat_path(b) do %>
+            <div class="col-xs-12 col-md-3">
+              <div class="card"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= cl_image_path b.photo, height: 300, width: 400, crop: :fill %>')">
+                <div class="card-category"><%= b.city %></div>
+                <div class="card-description">
+                  <h2><%= b.name %></h2>
+                  <p><%= b.boat_type %></p>
+                </div>
               </div>
-              <img class="card-user avatar avatar-large" src="images/romain.jpeg">
             </div>
-          </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</div>
 
 
 

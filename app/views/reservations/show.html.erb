@@ -1,14 +1,44 @@
-<h1>Reservations</h1>
+<div class="container2">
+<div class="row">
+  <div class="col-xs-12 col-sm-4 placement">
+<h1>Reservation</h1>
 
-<p><strong>Hi<%= current_user.name %> your last reservations :</strong></p>
 <ul>
-  <li> <%= @boat_name %></li>
-  <li> <%= @booked_from %></li>
-  <li> <%= @booked_to %></li>
-</ul>
+  <li> Boat Name: "<%= @reservation.boat.name %>"</li>
+  <li> Boat Type: <%= @reservation.boat.boat_type %></li>
+  <li> City: <%= @reservation.boat.city %></li>
+  <li> Size: <%= @reservation.boat.size %> feet</li>
+  <li> From <%= @reservation.booked_from %> to <%= @reservation.booked_to %></li>
+  <li>Price per day : €<%= @reservation_price %></li>
+  <li>Number of days : <%= @number_of_days %></li>
+  <li>Total price for the booking: €<%= @total_price %></li>
+  <li> Owner of the boat : <%= @reservation.boat.user.profile.last_name %> <%= @reservation.boat.user.profile.first_name %></li>
+  </ul>
+<p><%= link_to 'back', user_reservations_path(current_user), class: 'btn btn-primary' %></p>
+</div>
 
-<%= link_to 'Edit', edit_boat_reservation_path(@reservations) %> |
-<%= link_to 'Destroy', boat_reservation_path(current_user, @reservation) , method: :delete, data: { confirm: 'Are you sure?' } %>
-
-|<%= link_to 'Back', boat_reservation_path %>
+  <div class="col-xs-12 col-sm-4 reservationimage">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @reservation.boat.photo, height: 300, width: 400, crop: :fill %>')">
+    <div class="card-category"><%= @reservation.boat.city %></div>
+    <div class="card-description">
+      <h2><%= @reservation.boat.name %></h2>
+        <p><%= @reservation.boat.boat_type %></p>
+         <p>
+         <!--making stars for average rating on card--->
+          <% if @reservation.boat.reviews.count > 0%>
+            <% a = [] %>
+            <% @reservation.boat.reviews.each do |r|  %>
+            <%  a << r.rating %>
+          <% end %>
+          <% c = a.inject{ |sum, el| sum + el } / a.size %>
+          <% c.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
