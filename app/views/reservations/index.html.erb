@@ -11,8 +11,8 @@
   <li> <%= r.booked_to %></li>
   <li> <%= r.skipper %></li>
   </ul>
-  <p><%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %> <%= link_to 'Details', user_reservation_path(current_user,r), class: 'btn btn-primary' %> <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
-  <% end %>
-</p>
 
-</div>
+  <p><%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %>
+  <%= link_to 'Details', user_reservation_path(current_user, r), class: "btn btn-primary" %> </p>
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+
