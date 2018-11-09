@@ -1,10 +1,4 @@
-
 <div class="text-center">
-<%= content_for :title do  %>
-WaterBNB - <%= @profile.first_name%> <%= @profile.last_name%>
-<% end %>
-<div class="container">
-<div class="profile_style">
   <div class="profile_flex1">
             <h2>My Profile</h2>
           </div>
@@ -14,7 +8,6 @@ WaterBNB - <%= @profile.first_name%> <%= @profile.last_name%>
         <div class="text-center">
           <div class="card-user-infos">
             <h2 class="text-center"></h2>
-
               <%= cl_image_tag(@profile.photo, class: "avatar-bordered", width: 150, height: 150, crop: :thumb, gravity: :face) %>
             <div>
               <h3><%= current_user.profile.first_name %></h3>
