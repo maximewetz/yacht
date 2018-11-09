@@ -1,14 +1,17 @@
-<h1>Reservations</h1>
+<h1>Reservation</h1>
 
-<p><strong>Hi<%= current_user.name %> your last reservations :</strong></p>
 <ul>
-  <li> <%= @boat_name %></li>
-  <li> <%= @booked_from %></li>
-  <li> <%= @booked_to %></li>
+  <li> Boat Name: <%= @reservation.boat.name %></li>
+  <li> Boat Type: <%= @reservation.boat.boat_type %></li>
+  <li> City: <%= @reservation.boat.city %></li>
+  <li> Size: <%= @reservation.boat.size %></li>
+  <li> From <%= @reservation.booked_from %> to <%= @reservation.booked_to %></li>
+  <li>Price per day :<%= @reservation_price %></li>
+  <li>Number of days :<%= @number_of_days %></li>
+  <li>Total price for the booking = <%= @total_price %></li>
+  <li> Owner of the boat : <%= @reservation.boat.user.profile.last_name %> <%= @reservation.boat.user.profile.first_name %></li>
+  <%= cl_image_tag @reservation.boat.photo, height: 300, width: 400, crop: :fill %>
 </ul>
 
-<p><%= link_to 'Edit', edit_boat_reservation_path(@reservations) %> |
-<%= link_to 'Destroy', boat_reservation_path(current_user, @reservation) , method: :delete, data: { confirm: 'Are you sure?' } %>
-
-|<%= link_to 'Back', boat_reservation_path %></p>
+|<%= link_to 'Back', user_reservations_path(current_user, @reservation) %>
 
