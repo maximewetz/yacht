@@ -3,17 +3,24 @@
         <h1>Waterbnb</h1>
         <p>Rent a Yacht</p>
         <div class="homebutton">
-        <%= link_to "Rent a boat", boats_path, class: "btn btn-danger" %>
 
-      <% if current_user.profile.nil? %>
-        <%= render "shared/popupprofile" %>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-        Add a boat
-        </button>
+
+      <%= link_to "Rent a boat", boats_path, class: "btn btn-danger" %>
+
+      <% if user_signed_in? %>
+
+        <% if current_user.profile.nil? %>
+          <%= render "shared/popupprofile" %>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+          Add a boat
+          </button>
+        <% else %>
+          <%= link_to "Add a boat", new_boat_path(current_user), class: "btn btn-danger" %>
+        <% end %>
 
       <% else %>
-        <%= link_to new_boat_path %>
+        <%= link_to "Add a boat", new_boat_path(current_user), class: "btn btn-danger" %>
       <% end %>
 
         </div>

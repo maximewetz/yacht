@@ -14,15 +14,6 @@
 
       <%= link_to "My reservations", user_reservations_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
-    <% if current_user.profile.nil? %>
-      <%= render "shared/popupprofile" %>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">
-    Add a boat
-    </button>
-
-    <% else %>
-      <%= link_to "Add a new boat", new_boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
       <!-- Avatar with dropdown menu -->
@@ -31,10 +22,16 @@
         <div class="dropdown">
           <% if @profile %>
             <%= cl_image_tag @profile.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% else %>
+          <% elsif current_user && !@profile %>
             <div id="navbar-wagon-menu" class="avatar dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user-plus"></i></div>
+          <% else %>
+
           <% end %>
+
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
+          <% if user_signed_in? %>
             <% if current_user.profile.nil? %>
               <li>
                 <%= link_to new_user_profile_path(current_user) do %>
@@ -49,7 +46,8 @@
                 <% end %>
               </li>
 
-           <% end %>
+            <% end %>
+          <% end %>
 
 
 
@@ -66,7 +64,7 @@
           </ul>
         </div>
       </div>
-    <% else %>
+    <% if !user_signed_in? %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
