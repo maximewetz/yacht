@@ -1,3 +1,6 @@
+<%= content_for :title do  %>
+Modify - <%= @boat.name  %>
+<% end %>
 <h1>Modify your boat</h1>
 
 <%= simple_form_for @boat  do |f| %>
