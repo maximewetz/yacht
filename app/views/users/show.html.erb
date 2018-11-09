@@ -1,21 +1,39 @@
-<% a = ["images/download.jpeg","images/images2.jpeg", "images/images3.jpeg", "images/images4.jpeg", "images/images5.jpeg", "images/imqages.jpeg", "images/imagses.jpeg"] %>
+<div class="container">
+  <h2>Your boats</h2>
+</div>
+
 <h2 class="text-center"></h2>
-    <div class="row">
-      <% @user.boats.each do |b| %>
-        <%= link_to boat_path(b) do %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= a.sample %>);">
-              <div class="card-category"><%= b.city %></div>
-              <div class="card-description">
-                <h2><%= b.name %></h2>
-                <p><%= b.boat_type %></p>
-              </div>
-              <img class="card-user avatar avatar-large" src="images/romain.jpeg">
-            </div>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+   <div class="row">
+     <% @user.boats.each do |b| %>
+       <%= link_to boat_path(b) do %>
+         <div class="col-xs-12 col-sm-4">
+           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path b.photo, height: 300, width: 400, crop: :fill %>');">
+             <div class="card-category"><%= b.city %></div>
+             <div class="card-description">
+               <h2><%= b.name %></h2>
+               <p><%= b.boat_type %></p>
+               <p>€<%= b.price %> / week</p>
+               <p><%= b.size %> feet</p>
+               <p>
+                <!--making stars for average rating on card--->
+                <% if b.reviews.count > 0 %>
+                  <% a = [] %>
+                  <% b.reviews.each do |r|  %>
+                    <%  a << r.rating %>
+                  <% end %>
+                  <% c = a.inject{ |sum, el| sum + el } / a.size %>
+                  <% c.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                <% end %>
+                </p>
+                <!---END stars making--->
+             </div>
+             <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+           </div>
+         </div>
+         <% end %>
+       <% end %>
+     </div>
 
 

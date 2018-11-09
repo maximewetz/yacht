@@ -7,8 +7,8 @@
   <li> <%= @booked_to %></li>
 </ul>
 
-<%= link_to 'Edit', edit_boat_reservation_path(@reservations) %> |
+<p><%= link_to 'Edit', edit_boat_reservation_path(@reservations) %> |
 <%= link_to 'Destroy', boat_reservation_path(current_user, @reservation) , method: :delete, data: { confirm: 'Are you sure?' } %>
 
-|<%= link_to 'Back', boat_reservation_path %>
+|<%= link_to 'Back', boat_reservation_path %></p>
 

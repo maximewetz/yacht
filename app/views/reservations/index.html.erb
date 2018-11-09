@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Reservations</h1>
 
 <p><strong>Your last reservations :</strong></p>
@@ -9,8 +10,9 @@
   <li> <%= r.booked_from %></li>
   <li> <%= r.booked_to %></li>
   <li> <%= r.skipper %></li>
-  <%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %> | <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
   </ul>
+  <p><%= link_to 'Edit', edit_user_reservation_path(current_user,r), class: 'btn btn-primary' %>  <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
   <% end %>
+</p>
 
-
+</div>
