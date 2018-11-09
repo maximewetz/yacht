@@ -7,6 +7,9 @@ class ReservationsController < ApplicationController
   def show
     @reservation = Reservation.find(params[:id])
     authorize @reservation
+    @reservation_price = @reservation.boat.price
+    @number_of_days = (@reservation.booked_from..@reservation.booked_to).count
+    @total_price = @reservation_price * @number_of_days
   end
 
   def new
@@ -31,7 +34,7 @@ class ReservationsController < ApplicationController
 
       if @reservation.save
         @boat.save
-        redirect_to user_reservations_path(current_user)
+        redirect_to user_reservation_path(current_user, @reservation)
       else
         render :new
       end
@@ -54,10 +57,6 @@ class ReservationsController < ApplicationController
     @reservation.destroy(reservation_params)
     redirect_to user_reservations_path(current_user)
   end
-
-  # def booking_period
-  #   (booked_from..booked_to).to_a
-  # end
 
   private
 
