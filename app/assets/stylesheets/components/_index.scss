@@ -12,6 +12,11 @@ h2 {
   margin-top: 50px;
   text-align: center;
 }
+
+.inline{
+  display:inline;
+}
+
 .title{
   font-weight: 900;
   font-size: 40px;
@@ -32,6 +37,20 @@ h2 {
   margin-bottom: 30px;
   margin-right: 150px;
   margin-left: 150px;
+}
+
+.container2{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.placement{
+  margin-top: 80px;
+}
+.reservationimage{
+  margin-top: 140px
 }
 
 .simple_form {
@@ -59,6 +78,9 @@ margin-left: 33%;
 {
 border-radius: 5%;
 }
+.modal-body {
+  font-color: black;
+}
 
 .align_form
 {
@@ -73,8 +95,13 @@ padding: 20px;
 margin: 15px 20px;
 }
 
+
 .flex-container {
   display: flex;
+}
+
+.center-button {
+  text-align: center;
 }
 
 

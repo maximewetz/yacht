@@ -14,14 +14,31 @@
 
       <%= link_to "My reservations", user_reservations_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to "Add a new boat", new_boat_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Find a boat", boats_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+
+
+
 
       <!-- Avatar with dropdown menu -->
+
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+          <% if @profile %>
+            <%= cl_image_tag @profile.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif current_user && !@profile %>
+            <div id="navbar-wagon-menu" class="avatar dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user-plus"></i></div>
+
+          <% end %>
+
+
+
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <%if current_user.profile.nil?%>
+
+          <% if user_signed_in? %>
+            <% if current_user.profile.nil? %>
               <li>
                 <%= link_to new_user_profile_path(current_user) do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -35,7 +52,8 @@
                 <% end %>
               </li>
 
-           <% end %>
+            <% end %>
+          <% end %>
 
 
 
@@ -52,7 +70,7 @@
           </ul>
         </div>
       </div>
-    <% else %>
+    <% if !user_signed_in? %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
