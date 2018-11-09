@@ -38,7 +38,8 @@ WaterBNB - <%= @boat.name  %>
             <% if current_user == @boat.user %>
             <!---IF STATEMENT DISABLED---->
             <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %>
-           </p>
+            <% else %>
+            <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
             <% end %>
           </div>
         </div>
