@@ -29,8 +29,17 @@ WaterBNB - <%= @boat.name  %>
   <% end %>
 <!-----RATING ENDS---->
   </ul>
+ <% if current_user.profile.nil? %>
+          <%= render "shared/popupprofile" %>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Book
+          </button>
 
- <p> <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
+        <% else %>
+             <p> <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %></p>
+        <% end %>
+ <p>
 <!------BUTTONS------->
 <% if current_user == @boat.user %>
   <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %> <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
