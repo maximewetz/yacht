@@ -9,8 +9,16 @@
   <%= f.input :size %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit "Add a boat", class: 'btn btn-primary'%>
+
+  <% if current_user.profile.nil? %>
+    <%= render "shared/popupprofile" %>
+      <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add a boat
+    </button>
+  <% else %>
+      <%= f.submit "Add a boat", class: 'btn btn-primary'%>
+  <% end %>
 <% end %>
 
-</div>
 
