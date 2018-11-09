@@ -1,5 +1,7 @@
-
-<div class="container">
+<%= content_for :title do  %>
+WaterBNB - All boats
+<% end %>
+<div class="search">
 <h2>What are you looking for?</h2>
 <div class="simple_form">
 <%= form_tag boats_path, method: :get do %>
@@ -20,7 +22,7 @@
  <p> <%= text_field_tag :price,
     params[:price],
     class: "form-control",
-    placeholder: "price per week"
+    placeholder: "price per day"
   %></p>
 
  <p> <%= text_field_tag :size,
@@ -61,8 +63,10 @@
                 </p>
                 <!---END stars making--->
              </div>
-             <img class="card-user avatar avatar-large" src="images/romain.jpeg">
+
+             <%= cl_image_tag b.user.profile.photo, class: "card-user avatar avatar-large" %>
            </div>
+
          </div>
          <% end %>
        <% end %>
@@ -74,3 +78,4 @@
 
 
 
+cl_image_tag(@profile.photo

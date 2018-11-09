@@ -1,3 +1,7 @@
+<%= content_for :title do  %>
+WaterBNB - new boat
+<% end %>
+
 <div class="container">
 <h2>Add your boat for rent</h2>
 
@@ -11,6 +15,7 @@
   <%= f.input :photo_cache, as: :hidden %>
   <div class="align_form">
   <%= f.submit "Add a boat", class: 'btn btn-primary'%>
+  <%= f.submit "Add boat", class: 'btn btn-primary'%>
 <% end %>
   </div>
 

@@ -1,4 +1,8 @@
+<%= content_for :title do  %>
+WaterBNB - <%= @boat.name  %>
+<% end %>
 <p id="notice"><%= notice %></p>
+
 <div class="container">
 <p><strong>About this boat</strong></p>
   <p class="title"><%= @boat.name %></p>
@@ -54,7 +58,6 @@
                 <% end %>
                 </p>
       </div>
-      <img class="card-user avatar avatar-large" src="images/romain.jpeg">
     </div>
   </div>
 </div>

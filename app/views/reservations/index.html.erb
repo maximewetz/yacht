@@ -5,6 +5,7 @@
 
 <div class="row">
   <% @reservations.each do |r| %>
+
     <div class="col-md-3 boat_card">
       <ul class="list-unstyled">
         <li> <strong>Boat name:</strong> <%= r.boat.name %></li>
@@ -20,3 +21,4 @@
   <% end %>
 </div>
 </div>
+
