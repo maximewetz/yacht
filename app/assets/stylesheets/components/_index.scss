@@ -78,6 +78,9 @@ margin-left: 33%;
 {
 border-radius: 5%;
 }
+.modal-body {
+  font-color: black;
+}
 
 .align_form
 {
@@ -90,6 +93,15 @@ background-color: #E8E8E8;
 box-shadow: 1px 1px 3px rgba(150, 150, 150, 0.8);
 padding: 20px;
 margin: 15px 20px;
+}
+
+
+.flex-container {
+  display: flex;
+}
+
+.center-button {
+  text-align: center;
 }
 
 

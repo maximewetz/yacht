@@ -4,61 +4,70 @@ WaterBNB - <%= @boat.name  %>
 <p id="notice"><%= notice %></p>
 
 <div class="container2">
-<div class="row">
-    <div class="col-xs-12 col-sm-4 placement">
-<p><strong>About this boat</strong></p>
-  <p class="title"><%= @boat.name %></p>
-  <ul class="list">
-  <li><%= @boat.boat_type %></li>
-  <li><%= @boat.city %></li>
-  <li>€<%= @boat.price %> / week</li>
-  <li><%= @boat.size %> Feet</li>
-  <!-----RATINGS STARTS---->
-  <% if @boat.reviews.count > 0%>
-    <% a = [] %>
-    <% @boat.reviews.each do |r|  %>
-      <%  a << r.rating %>
-    <% end %>
-    <%= link_to boat_reviews_path(@boat) do %>
-     <li>average rating:</li>
-      <% b = a.inject{ |sum, el| sum + el } / a.size %>
-      <% b.times do %>
-        <i class="fas fa-star"></i>
-      <% end %>
-    <% end %>
-  <% end %>
-<!-----RATING ENDS---->
-  </ul>
 
- <p> <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
-<!------BUTTONS------->
-<% if current_user == @boat.user %>
-  <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %> <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
-  <!---IF STATEMENT DISABLED---->
-<% end %>
-</div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-2">
+      <p><strong>About this boat</strong></p>
+      <div class="flex-container">
+        <div class="flex item">
+          <p class="title"><%= @boat.name %></p>
+          <ul class="list">
+            <p>Boat type: <%= @boat.boat_type %></p>
+            <p>City : <%= @boat.city %></p>
+            <p>Price per day : <%= @boat.price %></p>
+            <p>Lenght of the boat : <%= @boat.size %> Feet</p>
+            <!-----RATINGS STARTS---->
+            <% if @boat.reviews.count > 0%>
+            <% a = [] %>
+            <% @boat.reviews.each do |r|  %>
+            <%  a << r.rating %>
+            <% end %>
+            <%= link_to boat_reviews_path(@boat) do %>
+            <li>average rating:</li>
+            <% b = a.inject{ |sum, el| sum + el } / a.size %>
+            <% b.times do %>
+            <i class="fas fa-star"></i>
+            <% end %>
+            <% end %>
+            <% end %>
+            <!-----RATING ENDS---->
+          </ul>
 
-  <div class="col-xs-12 col-sm-4 reservationimage">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path @boat.photo, height: 300, width: 400, crop: :fill %>')">
-      <div class="card-category"><%= @boat.city %></div>
-      <div class="card-description">
-        <h2><%= @boat.name %></h2>
-        <p><%= @boat.boat_type %></p>
-         <p>
-         <!--making stars for average rating on card--->
-                <% if @boat.reviews.count > 0%>
-                  <% a = [] %>
-                  <% @boat.reviews.each do |r|  %>
-                    <%  a << r.rating %>
-                  <% end %>
-                  <% c = a.inject{ |sum, el| sum + el } / a.size %>
-                  <% c.times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                <% end %>
-                </p>
+          <p> <%= link_to 'Book', new_boat_reservation_path(@boat), class: 'btn btn-primary' %>
+            <!------BUTTONS------->
+            <% if current_user == @boat.user %>
+            <%= link_to 'edit', edit_boat_path(@boat), class: 'btn btn-primary' %> <%= link_to 'destroy', boat_path(@boat), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %> <%= link_to 'add review', new_boat_review_path(@boat), class: 'btn btn-primary' %></p>
+            <!---IF STATEMENT DISABLED---->
+            <% end %>
+          </div>
+        </div>
+
       </div>
+
+        <div class="col-xs-12 col-md-4">
+          <div class="flex item">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('<%= cl_image_path @boat.photo, height: 300, width: 400, crop: :fill %>')">
+            <div class="card-category"><%= @boat.city %></div>
+            <div class="card-description">
+              <h2><%= @boat.name %></h2>
+              <p><%= @boat.boat_type %></p>
+              <p>
+               <!--making stars for average rating on card--->
+               <% if @boat.reviews.count > 0%>
+               <% a = [] %>
+               <% @boat.reviews.each do |r|  %>
+               <%  a << r.rating %>
+               <% end %>
+               <% c = a.inject{ |sum, el| sum + el } / a.size %>
+               <% c.times do %>
+               <i class="fas fa-star"></i>
+               <% end %>
+               <% end %>
+             </p>
+           </div>
+         </div>
+       </div>
     </div>
   </div>
 </div>

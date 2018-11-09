@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_profile
 
   include Pundit
 
@@ -11,5 +12,11 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  def set_profile
+    if current_user && current_user.profile
+      @profile = current_user.profile
+    end
   end
 end
